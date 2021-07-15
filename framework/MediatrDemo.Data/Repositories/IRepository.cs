@@ -12,6 +12,8 @@ namespace MediatrDemo.Data.Repositories
 
     }
 
+    
+
     public interface IRepository<TKey, TEntity> : IRepository  
         where TEntity: IEntity<TKey>
     {
