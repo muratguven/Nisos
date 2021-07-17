@@ -20,53 +20,55 @@ namespace MediatrDemo.MongoDb.Repositories
 
     {
 
-        private readonly IMongoCollection<TEntity> _collection;
+        protected readonly TMongoDbContext DbContext;
+        protected readonly IMongoCollection<TEntity> _collection;
 
-        public MongoDbQueryRepository()
+        public MongoDbQueryRepository(IMongoDbContext dbContext)
         {
-           
+            DbContext = (TMongoDbContext)dbContext;
+            _collection = DbContext.Collection<TEntity>();
         }
 
 
         public override TEntity Find(Expression<Func<TEntity, bool>> predicate)
         {
-            
-            throw new NotImplementedException();
+            return _collection.Find(predicate).FirstOrDefault();            
         }
 
         public override Task<TEntity> FindAsync(Expression<Func<TEntity, bool>> predicate)
         {
-            throw new NotImplementedException();
+            return _collection.Find(predicate).FirstOrDefaultAsync();
         }
 
         public override IQueryable<TEntity> GetAll()
         {
-            throw new NotImplementedException();
+            return _collection.AsQueryable();
         }
 
-        public override Task<IQueryable<TEntity>> GetAllAsync()
+        public override async Task<IQueryable<TEntity>> GetAllAsync()
         {
-            throw new NotImplementedException();
+
+            return (await _collection.Find(_ => true).ToListAsync()) as IQueryable<TEntity>;
         }
 
         public override List<TEntity> GetList()
         {
-            throw new NotImplementedException();
+            return _collection.Find(_ => true).ToList();
         }
 
         public override List<TEntity> GetList(Expression<Func<TEntity, bool>> predicate)
         {
-            throw new NotImplementedException();
+            return _collection.Find(predicate).ToList();
         }
 
         public override Task<List<TEntity>> GetListAsync()
         {
-            throw new NotImplementedException();
+            return _collection.Find(_ => true).ToListAsync();
         }
 
         public override Task<List<TEntity>> GetListAsync(Expression<Func<TEntity, bool>> predicate)
         {
-            throw new NotImplementedException();
+            return _collection.Find(predicate).ToListAsync();
         }
     }
 }

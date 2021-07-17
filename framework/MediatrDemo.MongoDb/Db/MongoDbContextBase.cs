@@ -37,6 +37,11 @@ namespace MediatrDemo.MongoDb.Db
         }
 
 
+        public virtual IMongoCollection<T> GetCollection<T>()
+        {
+            return Database.GetCollection<T>(GetCollectionName<T>());
+        }
+
 
     }
 }
