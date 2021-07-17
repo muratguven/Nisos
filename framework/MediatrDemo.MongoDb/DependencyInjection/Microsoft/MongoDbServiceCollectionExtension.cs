@@ -1,4 +1,5 @@
 ﻿using MediatrDemo.MongoDb.Db;
+using MediatrDemo.MongoDb.Repositories;
 using MediatrDemo.MongoDb.Settings;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -22,6 +23,8 @@ namespace MediatrDemo.MongoDb.DependencyInjection.Microsoft
 
             services.AddTransient<IMongoDbContext, MongoDbContextBase>();
             services.AddSingleton<IMongoDbSettings>(serviceProvider => serviceProvider.GetRequiredService<IOptions<MongoDbSettings>>().Value);
+            services.AddScoped(typeof(IMongoDbQueryRepository<>), typeof(MongoDbQueryRepository<,>));
+            services.AddScoped(typeof(IMongoDbCommandRepository<,>), typeof(MongoDbCommandRepository<,,>));
             return services;
         }
     }

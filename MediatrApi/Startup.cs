@@ -4,6 +4,7 @@ using MediatR;
 using MediatR.Extensions.Autofac.DependencyInjection;
 using MediatrDemo.CoreLib;
 using MediatrDemo.CoreLib.DataAccess;
+using MediatrDemo.MongoDb.DependencyInjection.Microsoft;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -39,7 +40,8 @@ namespace MediatrApi
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MediatrApi", Version = "v1" });
             });
- 
+
+            services.AddMongoDb(Configuration);
             
             
         }
