@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MediatrDemo.MongoDb.Db
 {
-    public abstract class MongoDbContextBase : IMongoDbContext
+    public  class MongoDbContextBase : IMongoDbContext
     {
 
 
@@ -16,7 +16,12 @@ namespace MediatrDemo.MongoDb.Db
 
         public IMongoDatabase Database { get; private set; }
 
-        public IClientSessionHandle SessionHandle { get; private set; }
+        //public IClientSessionHandle SessionHandle { get; private set; }
+
+        public MongoDbContextBase()
+        {
+
+        }
 
         public virtual IMongoCollection<T> Collection<T>()
         {
@@ -29,11 +34,11 @@ namespace MediatrDemo.MongoDb.Db
             return ((BsonCollectionAttribute) typeof(T).GetCustomAttributes(typeof(BsonCollectionAttribute), true).FirstOrDefault())?.CollectionName;
         }
 
-        public virtual void InitializeDatabase(IMongoDatabase database, IMongoClient client, IClientSessionHandle sessionHandle)
+        public virtual void InitializeDatabase(IMongoDatabase database, IMongoClient client)
         {
             Database = database;
             Client = client;
-            SessionHandle = sessionHandle;
+            //SessionHandle = sessionHandle;
         }
 
 

@@ -13,7 +13,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "framework", "framework", "{
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediatrDemo.MongoDb", "framework\MediatrDemo.MongoDb\MediatrDemo.MongoDb.csproj", "{CE81D7F4-48A4-4F5B-A574-01A6856788BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediatrDemo.Data", "framework\MediatrDemo.Data\MediatrDemo.Data.csproj", "{BE5B4E98-8D97-45A9-82E3-8ECD17C14A9F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediatrDemo.Data", "framework\MediatrDemo.Data\MediatrDemo.Data.csproj", "{BE5B4E98-8D97-45A9-82E3-8ECD17C14A9F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D8819E1B-6057-4855-92FF-69A544FCD743}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediatrApp.MongoDb", "src\MediatrApp.MongoDb\MediatrApp.MongoDb.csproj", "{BDEBE1FE-2280-4B01-87BF-79490A88E856}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediatrApp.Domain", "src\MediatrApp.Domain\MediatrApp.Domain.csproj", "{3EC03377-2471-40FD-9A19-F7E29C79D472}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +47,14 @@ Global
 		{BE5B4E98-8D97-45A9-82E3-8ECD17C14A9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE5B4E98-8D97-45A9-82E3-8ECD17C14A9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE5B4E98-8D97-45A9-82E3-8ECD17C14A9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDEBE1FE-2280-4B01-87BF-79490A88E856}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDEBE1FE-2280-4B01-87BF-79490A88E856}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDEBE1FE-2280-4B01-87BF-79490A88E856}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDEBE1FE-2280-4B01-87BF-79490A88E856}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EC03377-2471-40FD-9A19-F7E29C79D472}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EC03377-2471-40FD-9A19-F7E29C79D472}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EC03377-2471-40FD-9A19-F7E29C79D472}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EC03377-2471-40FD-9A19-F7E29C79D472}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +62,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{CE81D7F4-48A4-4F5B-A574-01A6856788BC} = {E9604AE4-BEA4-41F7-BCF1-F9BC5606FE80}
 		{BE5B4E98-8D97-45A9-82E3-8ECD17C14A9F} = {E9604AE4-BEA4-41F7-BCF1-F9BC5606FE80}
+		{BDEBE1FE-2280-4B01-87BF-79490A88E856} = {D8819E1B-6057-4855-92FF-69A544FCD743}
+		{3EC03377-2471-40FD-9A19-F7E29C79D472} = {D8819E1B-6057-4855-92FF-69A544FCD743}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E662D416-207D-4A92-873A-134E88705C1F}

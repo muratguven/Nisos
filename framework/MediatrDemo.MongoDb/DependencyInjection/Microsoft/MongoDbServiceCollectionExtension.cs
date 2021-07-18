@@ -14,13 +14,13 @@ namespace MediatrDemo.MongoDb.DependencyInjection.Microsoft
             this IServiceCollection services, IConfiguration configuration)
         {
             // MongoDb settings 
-            var section = configuration.GetSection("MongoDbSettings") as MongoDbSettings;
-            services.Configure<MongoDbSettings>(opt => {
-                opt.ConnectionString = section.ConnectionString;
-                opt.DatabaseName = section.DatabaseName;
+            //var section = configuration.GetSection("MongoDbSettings") as MongoDbSettings;
+            //services.Configure<MongoDbSettings>(opt => {
+            //    opt.ConnectionString = section.ConnectionString;
+            //    opt.DatabaseName = section.DatabaseName;
 
-            });
-
+            //});
+            
             services.AddTransient<IMongoDbContext, MongoDbContextBase>();
             services.AddSingleton<IMongoDbSettings>(serviceProvider => serviceProvider.GetRequiredService<IOptions<MongoDbSettings>>().Value);
             services.AddScoped(typeof(IMongoDbQueryRepository<>), typeof(MongoDbQueryRepository<,>));

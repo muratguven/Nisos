@@ -8,7 +8,7 @@ namespace MediatrDemo.MongoDb.Db
         IMongoDatabase Database { get; }
         IMongoCollection<T> Collection<T>();
 
-        IClientSessionHandle SessionHandle { get; }
+        //IClientSessionHandle SessionHandle { get; }
 
     }
 }

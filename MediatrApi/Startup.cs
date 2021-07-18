@@ -5,6 +5,7 @@ using MediatR.Extensions.Autofac.DependencyInjection;
 using MediatrDemo.CoreLib;
 using MediatrDemo.CoreLib.DataAccess;
 using MediatrDemo.MongoDb.DependencyInjection.Microsoft;
+using MediatrDemo.MongoDb.Settings;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -42,7 +43,7 @@ namespace MediatrApi
             });
 
             services.AddMongoDb(Configuration);
-            
+            services.Configure<MongoDbSettings>(Configuration.GetSection("MongoDbSettings"));
             
         }
 
