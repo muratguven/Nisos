@@ -8,10 +8,10 @@ namespace MediatrDemo.Data.Entities
 {
     public class Entity : IEntity
     {
-
+        public virtual Guid Id { get; set; }
     }
 
-    public class Entity<TKey> : IEntity<TKey> where TKey : Type
+    public class Entity<TKey> : IEntity<TKey> 
     {
         public virtual TKey Id { get; set; }
     }
