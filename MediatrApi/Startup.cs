@@ -50,7 +50,7 @@ namespace MediatrApi
         public void ConfigureContainer(ContainerBuilder builder)
         {
             builder.RegisterType<DemoDataAccess>().As<IDemoDataAccess>();
-            //builder.RegisterMediatR(typeof(Startup).GetTypeInfo().Assembly);
+            builder.RegisterMediatR(typeof(Startup).GetTypeInfo().Assembly);
             builder.RegisterMediatR(typeof(CoreLibStartup).Assembly);
            
         }
