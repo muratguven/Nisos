@@ -2,6 +2,9 @@ using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using MediatR;
 using MediatR.Extensions.Autofac.DependencyInjection;
+using MediatrApp.MongoDb.Db;
+using MediatrApp.MongoDb.DependencyInjection;
+using MediatrApp.MongoDb.Repositories.Customers;
 using MediatrDemo.CoreLib;
 using MediatrDemo.CoreLib.DataAccess;
 using MediatrDemo.MongoDb.DependencyInjection.Microsoft;
@@ -42,17 +45,18 @@ namespace MediatrApi
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MediatrApi", Version = "v1" });
             });
 
-            services.AddMongoDb(Configuration);
+            services.AddMongoDb<MediatrAppMongoDbContext>(Configuration);
             services.Configure<MongoDbSettings>(Configuration.GetSection("MongoDbSettings"));
-            
+           
         }
 
         public void ConfigureContainer(ContainerBuilder builder)
         {
+            builder.RegisterType<CustomerQueryRepository>().As<ICustomerQueryRepository>();
             builder.RegisterType<DemoDataAccess>().As<IDemoDataAccess>();
             builder.RegisterMediatR(typeof(Startup).GetTypeInfo().Assembly);
             builder.RegisterMediatR(typeof(CoreLibStartup).Assembly);
-           
+            
         }
 
 

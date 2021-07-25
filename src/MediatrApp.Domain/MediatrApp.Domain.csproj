@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\framework\MediatrDemo.Data\MediatrDemo.Data.csproj" />
+    <ProjectReference Include="..\..\framework\MediatrDemo.MongoDb\MediatrDemo.MongoDb.csproj" />
   </ItemGroup>
 
 </Project>

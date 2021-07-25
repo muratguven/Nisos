@@ -19,13 +19,13 @@ namespace MediatrDemo.MongoDb.Repositories
 
     {
 
-        protected readonly TMongoDbContext DbContext;
+        protected readonly IMongoDbContextProvider<TMongoDbContext> _contextProvider;
         protected readonly IMongoCollection<TEntity> _collection;
 
-        public MongoDbQueryRepository(IMongoDbContext dbContext)
+        public MongoDbQueryRepository(IMongoDbContextProvider<TMongoDbContext> contextProvider)
         {
-            DbContext = (TMongoDbContext)dbContext;
-            _collection = DbContext.Collection<TEntity>();
+            _contextProvider = contextProvider;
+            _collection = contextProvider.GetDbContext().Collection<TEntity>();
         }
 
 

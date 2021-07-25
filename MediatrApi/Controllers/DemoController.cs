@@ -1,7 +1,10 @@
 ﻿using MediatR;
+using MediatrApp.Domain.Customers;
 using MediatrDemo.CoreLib.Commands;
 using MediatrDemo.CoreLib.Models;
 using MediatrDemo.CoreLib.Queries;
+using MediatrDemo.MongoDb.Repositories;
+using MediatrDemo.MongoDb.test;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -18,9 +21,14 @@ namespace MediatrApi.Controllers
     {
         private readonly IMediator _mediator;
 
-        public DemoController(IMediator mediator)
+        private ITestFace<Customer> _test;
+
+        public DemoController(IMediator mediator, ITestFace<Customer> test)
         {
             _mediator = mediator;
+
+            _test = test;
+            
         }
 
         // GET: api/<DemoController>

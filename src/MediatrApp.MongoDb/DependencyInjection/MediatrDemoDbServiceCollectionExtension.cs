@@ -1,21 +1,18 @@
-﻿
-using Autofac;
-using Autofac.Extensions.DependencyInjection;
+﻿using MediatrApp.MongoDb.Db;
+using MediatrApp.MongoDb.Repositories.Customers;
+using MediatrDemo.MongoDb.Db;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace MediatrApp.MongoDb.DependencyInjection
 {
     public static class MediatrDemoDbServiceCollectionExtension
     {
-        public static AutofacServiceProvider AddMediatrDemoMongoDb(this IServiceCollection services)
+        public static IServiceCollection AddMediatrDemoMongoDb(this IServiceCollection services)
         {
-            
 
-            ContainerBuilder containerBuilder = new();
-            //containerBuilder.RegisterType<MediatrAppMongoDbContext>().As<IMongoDbContext>().
-            containerBuilder.Populate(services);
-            var container = containerBuilder.Build();
-            return new AutofacServiceProvider(container);
+            services.AddScoped<ICustomerQueryRepository, CustomerQueryRepository>();
+            
+            return services;
            
         }
     }

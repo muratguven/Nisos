@@ -21,6 +21,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MediatrDemo.CoreLib\MediatrDemo.CoreLib.csproj" />
+    <ProjectReference Include="..\src\MediatrApp.Domain\MediatrApp.Domain.csproj" />
+    <ProjectReference Include="..\src\MediatrApp.MongoDb\MediatrApp.MongoDb.csproj" />
   </ItemGroup>
 
 </Project>

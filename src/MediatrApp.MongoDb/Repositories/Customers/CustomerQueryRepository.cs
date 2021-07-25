@@ -12,9 +12,8 @@ namespace MediatrApp.MongoDb.Repositories.Customers
 {
     public class CustomerQueryRepository : MongoDbQueryRepository<MediatrAppMongoDbContext, Customer>, ICustomerQueryRepository
     {
-        public CustomerQueryRepository(IMongoDbContext dbContext) : base(dbContext)
+        public CustomerQueryRepository(IMongoDbContextProvider<MediatrAppMongoDbContext> contextProvider) : base(contextProvider)
         {
-
         }
 
         public Customer Get(Guid id)
