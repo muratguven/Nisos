@@ -16,11 +16,15 @@ namespace MediatrDemo.MongoDb.Db
 
         public IMongoDatabase Database { get; private set; }
 
-        //public IClientSessionHandle SessionHandle { get; private set; }
+        public IClientSessionHandle SessionHandle { get; private set; }
+
+        private readonly List<Func<Task>> _commandsAsync;
+        private readonly List<Action> _commands;
 
         public MongoDbContextBase()
         {
-
+            _commandsAsync = new List<Func<Task>>();
+            _commands = new List<Action>();
         }
 
         public virtual IMongoCollection<T> Collection<T>()
@@ -38,7 +42,7 @@ namespace MediatrDemo.MongoDb.Db
         {
             Database = database;
             Client = client;
-            //SessionHandle = sessionHandle;
+            //SessionHandle = client.Ses
         }
 
 
@@ -47,6 +51,56 @@ namespace MediatrDemo.MongoDb.Db
             return Database.GetCollection<T>(GetCollectionName<T>());
         }
 
+        public void Dispose()
+        {
+            SessionHandle?.Dispose();
+            GC.SuppressFinalize(this);
+        }
 
+        public void AddCommand(Func<Task> func) => _commandsAsync.Add(func);
+        
+
+        public void AddCommand(Action action) => _commands.Add(action);
+
+
+        public virtual async Task<int> CommitChangesAsync()
+        {
+            ValidateClient();
+            using (SessionHandle = await Client.StartSessionAsync())
+            {
+                SessionHandle.StartTransaction();
+
+                var commandTasks = _commandsAsync.Select(c => c());
+                await Task.WhenAll(commandTasks);
+                await SessionHandle.CommitTransactionAsync();
+            }
+
+            return _commandsAsync.Count;
+        }
+
+        public int CommitChanges()
+        {
+            ValidateClient();
+            using (SessionHandle = Client.StartSession())
+            {
+                SessionHandle.StartTransaction();
+                foreach (Action act in _commands)
+                {
+                    act.Invoke();
+                }
+
+                SessionHandle.CommitTransaction();
+
+            }
+            return _commands.Count;
+        }
+
+        private void ValidateClient()
+        {
+            if (Client == null)
+            {
+                throw new ApplicationException($"Mongo client is null!");
+            }
+        }
     }
 }

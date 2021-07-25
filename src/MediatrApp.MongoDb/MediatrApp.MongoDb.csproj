@@ -6,10 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\framework\MediatrDemo.MongoDb\MediatrDemo.MongoDb.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Repositories\" />
+    <ProjectReference Include="..\MediatrApp.Domain\MediatrApp.Domain.csproj" />
   </ItemGroup>
 
 </Project>

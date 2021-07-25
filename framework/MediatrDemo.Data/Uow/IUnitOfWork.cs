@@ -9,5 +9,6 @@ namespace MediatrDemo.Data.Uow
     public interface IUnitOfWork : IDisposable
     {
         bool SaveChanges();
+        Task<bool> SaveChangesAsync();
     }
 }
