@@ -18,12 +18,12 @@ namespace MediatrApp.MongoDb.Repositories.Customers
 
         public Customer Get(Guid id)
         {
-            throw new NotImplementedException();
+            return base.Find(z => z.Id == id);
         }
 
-        public Task<Customer> GetAsync(Guid id)
+        public async Task<Customer> GetAsync(Guid id)
         {
-            throw new NotImplementedException();
+            return await base.FindAsync(x => x.Id == id);
         }
     }
 }

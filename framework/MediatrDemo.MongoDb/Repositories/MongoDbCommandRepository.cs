@@ -17,17 +17,18 @@ namespace MediatrDemo.MongoDb.Repositories
         where TMongoDbContext : IMongoDbContext
     {
 
-        protected IMongoDbContext DbContext;
-        protected IMongoCollection<TEntity> _collection;
-        public MongoDbCommandRepository(IMongoDbContext dbContext)
+        protected IMongoDbContextProvider<TMongoDbContext> _contextProvider;
+        protected IMongoCollection<TEntity> Collection;
+        public MongoDbCommandRepository(IMongoDbContextProvider<TMongoDbContext> contextProvider)
         {
-            DbContext = dbContext;
-            _collection = DbContext.Collection<TEntity>();
+
+            _contextProvider = contextProvider;
+            Collection = contextProvider.GetDbContext().Collection<TEntity>();
         }
 
         public override void Delete(TEntity input)
         {
-            _collection.DeleteOne(x => x.Id.Equals(input.Id));          
+            Collection.DeleteOne(x => x.Id.Equals(input.Id));          
         }
 
         public void Delete(TKey id)
@@ -37,32 +38,32 @@ namespace MediatrDemo.MongoDb.Repositories
 
         public override Task DeleteAsync(TEntity input)
         {
-           return _collection.DeleteOneAsync(x => x.Id.Equals(input.Id));
+           return Collection.DeleteOneAsync(x => x.Id.Equals(input.Id));
         }
 
         public Task DeleteAsync(TKey id)
         {
-            return _collection.DeleteOneAsync(x => x.Id.Equals(id));
+            return Collection.DeleteOneAsync(x => x.Id.Equals(id));
         }
 
         public override void Insert(TEntity input)
         {
-            _collection.InsertOne(input);
+            Collection.InsertOne(input);
         }
 
         public override Task InsertAsync(TEntity input)
         {
-            return _collection.InsertOneAsync(input);
+            return Collection.InsertOneAsync(input);
         }
 
         public TEntity Update(TKey id, TEntity input)
         {
-            return _collection.FindOneAndReplace(f => f.Id.Equals(id), input);
+            return Collection.FindOneAndReplace(f => f.Id.Equals(id), input);
         }
 
         public Task<TEntity> UpdateAsync(TKey id, TEntity input)
         {
-            return _collection.FindOneAndReplaceAsync(x => x.Id.Equals(id), input);
+            return Collection.FindOneAndReplaceAsync(x => x.Id.Equals(id), input);
         }
     }
 }

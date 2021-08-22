@@ -1,5 +1,7 @@
 ﻿using MediatrDemo.Data.Entities;
 using MediatrDemo.MongoDb.Attributes;
+using MediatrDemo.MongoDb.Entities;
+using MongoDB.Bson.Serialization.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +11,7 @@ using System.Threading.Tasks;
 namespace MediatrApp.Domain.Customers
 {
     [BsonCollection("Customers")]
-    public class Customer : Entity<Guid>
+    public class Customer : MongoDbEntity<Guid>
     {
 
         public Customer()
@@ -25,6 +27,7 @@ namespace MediatrApp.Domain.Customers
             PhoneNumber = phonenumber;
             Email = email;
         }
+   
         public string Name { get; protected set; }
         public string Surname { get; protected set; }
 

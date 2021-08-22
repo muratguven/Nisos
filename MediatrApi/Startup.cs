@@ -45,7 +45,7 @@ namespace MediatrApi
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MediatrApi", Version = "v1" });
             });
 
-            services.AddMongoDb<MediatrAppMongoDbContext>(Configuration);
+            services.AddMediatrDemoMongoDb(Configuration);
             services.Configure<MongoDbSettings>(Configuration.GetSection("MongoDbSettings"));
            
         }
