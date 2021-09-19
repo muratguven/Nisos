@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MediatrDemo.CoreLib.Commands
 {
-    public class InsertPersonCommand:IRequest<PersonalModel>
+    public class InsertPersonCommand : IRequest<PersonalModel>
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

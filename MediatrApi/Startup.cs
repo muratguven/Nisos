@@ -1,28 +1,18 @@
 using Autofac;
-using Autofac.Extensions.DependencyInjection;
-using MediatR;
 using MediatR.Extensions.Autofac.DependencyInjection;
-using MediatrApp.MongoDb.Db;
 using MediatrApp.MongoDb.DependencyInjection;
 using MediatrApp.MongoDb.Repositories.Customers;
 using MediatrDemo.CoreLib;
 using MediatrDemo.CoreLib.DataAccess;
-using MediatrDemo.MongoDb.DependencyInjection.Microsoft;
 using MediatrDemo.MongoDb.Settings;
+using MediatrDemo.Redis.DependencyInjection.Microsoft;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Threading.Tasks;
 
 namespace MediatrApi
 {
@@ -47,7 +37,9 @@ namespace MediatrApi
 
             services.AddMediatrDemoMongoDb(Configuration);
             services.Configure<MongoDbSettings>(Configuration.GetSection("MongoDbSettings"));
-           
+            services.AddMediatrRedis(Configuration);
+
+
         }
 
         public void ConfigureContainer(ContainerBuilder builder)
