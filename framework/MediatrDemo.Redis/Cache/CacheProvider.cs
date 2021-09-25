@@ -16,7 +16,7 @@ namespace MediatrDemo.Redis.Cache
         private readonly ILogger Log;
 
 
-        public CacheProvider(IDistributedCache cache, ILogger log)
+        public CacheProvider(IDistributedCache cache, ILogger<CacheProvider> log)
         {
             Cache = cache;
             Log = log;

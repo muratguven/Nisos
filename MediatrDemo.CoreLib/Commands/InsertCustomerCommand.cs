@@ -7,6 +7,7 @@ namespace MediatrDemo.CoreLib.Commands
     {
 
 
+
         public InsertCustomerCommand(string name, string surname, string plateNumber, string phoneNumber, string email)
         {
             Name = name;

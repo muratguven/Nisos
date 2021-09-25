@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using MediatrApp.Domain.Customers;
 using MediatrDemo.CoreLib.Commands;
+using MediatrDemo.CoreLib.Models;
 using MediatrDemo.CoreLib.Queries;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -23,13 +24,13 @@ namespace MediatrApi.Controllers
         }
 
         [HttpGet]
-        public async Task<List<Customer>> Get()
+        public async Task<List<CustomerModel>> Get()
         {
             return await _mediator.Send(new GetCustomerQuery());
         }
 
         [HttpPost]
-        public async Task<Customer> Post([FromBody] Customer customer)
+        public async Task<Customer> Post([FromBody] CustomerModel customer)
         {
            return await _mediator.Send(new InsertCustomerCommand(customer.Name, customer.Surname, customer.PlateNumber, customer.PhoneNumber, customer.Email));
         }
