@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediatrApp.MongoDb", "src\M
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediatrApp.Domain", "src\MediatrApp.Domain\MediatrApp.Domain.csproj", "{3EC03377-2471-40FD-9A19-F7E29C79D472}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediatrDemo.Redis", "framework\MediatrDemo.Redis\MediatrDemo.Redis.csproj", "{F09A1B96-48C3-49CF-8C71-3E1390E0E490}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediatrDemo.Redis", "framework\MediatrDemo.Redis\MediatrDemo.Redis.csproj", "{F09A1B96-48C3-49CF-8C71-3E1390E0E490}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
