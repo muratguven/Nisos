@@ -5,8 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\framework\MediatrDemo.Data\MediatrDemo.Data.csproj" />
-    <ProjectReference Include="..\..\framework\MediatrDemo.MongoDb\MediatrDemo.MongoDb.csproj" />
+    <ProjectReference Include="..\..\framework\Nisos.MongoDb\Nisos.MongoDb.csproj" />
   </ItemGroup>
 
 </Project>

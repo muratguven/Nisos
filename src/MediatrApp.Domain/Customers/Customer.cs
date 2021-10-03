@@ -1,12 +1,6 @@
-﻿using MediatrDemo.Data.Entities;
-using MediatrDemo.MongoDb.Attributes;
-using MediatrDemo.MongoDb.Entities;
-using MongoDB.Bson.Serialization.Attributes;
+﻿using Nisos.MongoDb.Attributes;
+using Nisos.MongoDb.Entities;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MediatrApp.Domain.Customers
 {

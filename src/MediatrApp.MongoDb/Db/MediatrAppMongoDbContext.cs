@@ -1,7 +1,7 @@
 ﻿using MediatrApp.Domain.Customers;
-using MediatrDemo.MongoDb.Db;
-using MediatrDemo.MongoDb.Settings;
 using MongoDB.Driver;
+using Nisos.MongoDb.Db;
+using Nisos.MongoDb.Settings;
 
 namespace MediatrApp.MongoDb.Db
 {

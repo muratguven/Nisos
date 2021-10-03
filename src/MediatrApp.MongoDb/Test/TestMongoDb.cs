@@ -1,10 +1,8 @@
 ﻿using MediatrApp.Domain.Customers;
-using MediatrDemo.MongoDb.Settings;
 using MongoDB.Driver;
+using Nisos.MongoDb.Settings;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace MediatrApp.MongoDb.Test

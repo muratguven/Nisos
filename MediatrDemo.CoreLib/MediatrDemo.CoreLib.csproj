@@ -10,7 +10,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\framework\MediatrDemo.Redis\MediatrDemo.Redis.csproj" />
+    <ProjectReference Include="..\framework\Nisos.Redis\Nisos.Redis.csproj" />
+    <ProjectReference Include="..\src\MediatrApp.Domain\MediatrApp.Domain.csproj" />
     <ProjectReference Include="..\src\MediatrApp.MongoDb\MediatrApp.MongoDb.csproj" />
   </ItemGroup>
 

@@ -1,11 +1,8 @@
 ﻿using MediatrApp.MongoDb.Db;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using MediatrDemo.MongoDb.Repositories;
 using MediatrApp.Domain.Customers;
-using MediatrDemo.MongoDb.Db;
+using Nisos.MongoDb.Repositories;
+using Nisos.MongoDb.Db;
 
 namespace MediatrApp.MongoDb.Repositories.Customers
 {

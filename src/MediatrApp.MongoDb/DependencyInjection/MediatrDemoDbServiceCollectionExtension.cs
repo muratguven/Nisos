@@ -1,10 +1,9 @@
 ﻿using MediatrApp.MongoDb.Db;
 using MediatrApp.MongoDb.Repositories.Customers;
 using MediatrApp.MongoDb.Test;
-using MediatrDemo.MongoDb.Db;
-using MediatrDemo.MongoDb.DependencyInjection.Microsoft;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Nisos.MongoDb.DependencyInjection.Microsoft;
 
 namespace MediatrApp.MongoDb.DependencyInjection
 {

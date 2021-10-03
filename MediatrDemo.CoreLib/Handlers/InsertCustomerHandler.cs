@@ -1,13 +1,8 @@
 ﻿using MediatR;
 using MediatrApp.Domain.Customers;
 using MediatrApp.MongoDb.Repositories.Customers;
-using MediatrApp.MongoDb.Test;
 using MediatrDemo.CoreLib.Commands;
-using MediatrDemo.Redis.Cache;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using Nisos.Redis.Cache;
 using System.Threading;
 using System.Threading.Tasks;
 

@@ -4,14 +4,14 @@ using MediatrApp.MongoDb.DependencyInjection;
 using MediatrApp.MongoDb.Repositories.Customers;
 using MediatrDemo.CoreLib;
 using MediatrDemo.CoreLib.DataAccess;
-using MediatrDemo.MongoDb.Settings;
-using MediatrDemo.Redis.DependencyInjection.Microsoft;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Nisos.MongoDb.Settings;
+using Nisos.Redis.DependencyInjection.Microsoft;
 using System.Reflection;
 
 namespace MediatrApi
