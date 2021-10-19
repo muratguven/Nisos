@@ -13,65 +13,34 @@ namespace Nisos.Data.Repositories
         IQueryRepository<TEntity> 
         where TEntity:class,IEntity
     {
-        public void Delete(TEntity input)
-        {
-            throw new NotImplementedException();
-        }
+        public abstract void Delete(TEntity input);
 
-        public Task DeleteAsync(TEntity input)
-        {
-            throw new NotImplementedException();
-        }
 
-        public TEntity Find(Expression<Func<TEntity, bool>> predicate)
-        {
-            throw new NotImplementedException();
-        }
+        public abstract Task DeleteAsync(TEntity input);
 
-        public Task<TEntity> FindAsync(Expression<Func<TEntity, bool>> predicate)
-        {
-            throw new NotImplementedException();
-        }
 
-        public IQueryable<TEntity> GetAll()
-        {
-            throw new NotImplementedException();
-        }
+        public abstract TEntity Find(Expression<Func<TEntity, bool>> predicate);
 
-        public Task<IQueryable<TEntity>> GetAllAsync()
-        {
-            throw new NotImplementedException();
-        }
 
-        public List<TEntity> GetList()
-        {
-            throw new NotImplementedException();
-        }
+        public abstract Task<TEntity> FindAsync(Expression<Func<TEntity, bool>> predicate);
 
-        public List<TEntity> GetList(Expression<Func<TEntity, bool>> predicate)
-        {
-            throw new NotImplementedException();
-        }
+        public abstract IQueryable<TEntity> GetAll();
+        
 
-        public Task<List<TEntity>> GetListAsync()
-        {
-            throw new NotImplementedException();
-        }
+        public abstract Task<IQueryable<TEntity>> GetAllAsync();
 
-        public Task<List<TEntity>> GetListAsync(Expression<Func<TEntity, bool>> predicate)
-        {
-            throw new NotImplementedException();
-        }
+        public abstract List<TEntity> GetList();
+        
 
-        public void Insert(TEntity input)
-        {
-            throw new NotImplementedException();
-        }
+        public abstract List<TEntity> GetList(Expression<Func<TEntity, bool>> predicate);
 
-        public Task InsertAsync(TEntity input)
-        {
-            throw new NotImplementedException();
-        }
+        public abstract Task<List<TEntity>> GetListAsync();
+
+        public abstract Task<List<TEntity>> GetListAsync(Expression<Func<TEntity, bool>> predicate);
+
+        public abstract void Insert(TEntity input);
+
+        public abstract Task InsertAsync(TEntity input);
     }
 
 
@@ -81,35 +50,16 @@ namespace Nisos.Data.Repositories
         IQueryRepository<TKey, TEntity> 
         where TEntity : class, IEntity<TKey>
     {
-        public void Delete(TKey id)
-        {
-            throw new NotImplementedException();
-        }
+        public abstract void Delete(TKey id);
 
-        public Task DeleteAsync(TKey id)
-        {
-            throw new NotImplementedException();
-        }
+        public abstract Task DeleteAsync(TKey id);
 
-        public TEntity Get(TKey id)
-        {
-            throw new NotImplementedException();
-        }
+        public abstract TEntity Get(TKey id);
 
-        public Task<TEntity> GetAsync(TKey id)
-        {
-            throw new NotImplementedException();
-        }
+        public abstract Task<TEntity> GetAsync(TKey id);
+        public abstract TEntity Update(TKey id, TEntity input);
 
-        public TEntity Update(TKey id, TEntity input)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<TEntity> UpdateAsync(TKey id, TEntity input)
-        {
-            throw new NotImplementedException();
-        }
+        public abstract Task<TEntity> UpdateAsync(TKey id, TEntity input);
     }
 
 }
